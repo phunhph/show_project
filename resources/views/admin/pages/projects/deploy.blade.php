@@ -10,7 +10,7 @@
 
 <div class="container mx-auto mt-10">
     <h1 class="text-3xl font-bold mb-6">Triển khai Dự án</h1>
-    <form action="{{ url('http://fpoly-showrooms-workshop-main.com/admin/projects/deploy') }}" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md">
+    <form action="{{  route('admin.projects.deploy')  }}" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md">
         @csrf
 
         <div class="mb-4">

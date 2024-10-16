@@ -472,7 +472,7 @@ class projectsController extends Controller
     // Ghi log đường dẫn lưu tệp ZIP
     
 $zipFile = $request->file('project');
-$zipPath = $zipFile->storeAs('deployed', $zipFile->getClientOriginalName());
+$zipPath = $zipFile->storeAs("deployed/{$projectName}", $zipFile->getClientOriginalName());
 
 
 
@@ -498,7 +498,7 @@ $zipPath = $zipFile->storeAs('deployed', $zipFile->getClientOriginalName());
 
     // Lưu file JSON
     $jsonFile = $request->file('data');
-    // $jsonPath = $jsonFile->storeAs('uploads', $jsonFile->getClientOriginalName());
+    $jsonPath = $jsonFile->storeAs("deployed/{$projectName}", $jsonFile->getClientOriginalName());
 
     // Kiểm tra xem đường dẫn JSON có hợp lệ không
     if (empty($jsonPath)) {
@@ -526,7 +526,7 @@ $zipPath = $zipFile->storeAs('deployed', $zipFile->getClientOriginalName());
     //     User::create($item);
     // }
 
-    return response()->json(['message' => 'Triển khai dự án thành công!', 'project_name' => $projectName]);
+    return response()->json(['message' => 'Triển khai dự án thành công!', 'project_name' => $projectName, 'data' => $data]);
 }
 
 

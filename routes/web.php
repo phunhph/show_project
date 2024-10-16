@@ -92,7 +92,7 @@ Route::prefix('admin')->middleware('auth')->group(function(){
         Route::post('search',[AdminProjectsController::class,'search'])->name('admin.projects.search');
         Route::post('searchDelete',[AdminProjectsController::class,'searchSortDelete'])->name('admin.projects.searchDelete');
         Route::get('/deploy', [AdminProjectsController::class, 'deployFrom']);
-        Route::post('/deploy', [AdminProjectsController::class, 'deploy']);
+        Route::post('/deploy', [AdminProjectsController::class, 'deploy'])->name('admin.projects.deploy');
     });
 
     Route::prefix('members')->group(function(){
